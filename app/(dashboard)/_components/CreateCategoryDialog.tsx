@@ -27,7 +27,7 @@ import {
 } from "@/schema/catgories";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleOff, Loader2, PlusSquare } from "lucide-react";
-import { useCallback, useState } from "react";
+import { ReactNode, useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import {
@@ -46,9 +46,10 @@ import { useTheme } from "next-themes";
 interface Props {
   type: TransactionType;
   SuccessCallback: (category: Category) => void;
+  trigger?: ReactNode;
 }
 
-function CreateCategoryDialog({ type, SuccessCallback }: Props) {
+function CreateCategoryDialog({ type, SuccessCallback, trigger }: Props) {
   const [open, setOpen] = useState(false);
   const form = useForm<CreateCategorySchemaType>({
     resolver: zodResolver(CreateCategorySchema),
@@ -100,13 +101,17 @@ function CreateCategoryDialog({ type, SuccessCallback }: Props) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button
-          variant={"ghost"}
-          className="flex border-separate items-center justify-start rounded-none border-b p-3 text-muted-foreground"
-        >
-          <PlusSquare className="mr-2 size-4" />
-          Create new
-        </Button>
+        {trigger ? (
+          trigger
+        ) : (
+          <Button
+            variant={"ghost"}
+            className="flex border-separate items-center justify-start rounded-none border-b p-3 text-muted-foreground"
+          >
+            <PlusSquare className="mr-2 size-4" />
+            Create new
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

@@ -5,10 +5,10 @@ import Logo, { LogoMobile } from "./logo";
 import Link from "next/link";
 import { Button, buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { UserButton } from "@clerk/nextjs";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Ghost, Menu } from "lucide-react";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Navbar() {
   return (

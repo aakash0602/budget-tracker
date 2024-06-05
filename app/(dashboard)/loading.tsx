@@ -1,3 +1,5 @@
-export default function Loading() {
-  return <div>Loading</div>;
+function loading() {
+  return null;
 }
+
+export default loading;

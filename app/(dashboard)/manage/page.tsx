@@ -104,7 +104,7 @@ function CategoryList({ type }: { type: TransactionType }) {
                 )}
               >
                 {type}
-              </span>{" "}
+              </span>
               categories yet
             </p>
             <p className="text-sm text-muted-foreground">

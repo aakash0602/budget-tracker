@@ -9,12 +9,13 @@ export async function GET(request: Request) {
     redirect("/sign-in");
   }
 
-  const { searchparams } = new URL(request.url);
-  const paramType = searchparams.get("type");
+  const { searchParams } = new URL(request.url);
+  const paramType = searchParams.get("type");
 
   const validator = z.enum(["expense", "income"]).nullable();
+
   const queryParams = validator.safeParse(paramType);
-  if (!queryParams) {
+  if (!queryParams.success) {
     return Response.json(queryParams.error, {
       status: 400,
     });
@@ -24,7 +25,7 @@ export async function GET(request: Request) {
   const categories = await prisma.category.findMany({
     where: {
       userId: user.id,
-      ...(type && { type }),
+      ...(type && { type }), // include type in the filters if it's defined
     },
     orderBy: {
       name: "asc",

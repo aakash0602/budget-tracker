@@ -103,7 +103,6 @@ function MonthSelector({
 }: {
   period: Period;
   setPeriod: (period: Period) => void;
-  years: GetHistoryPeriodsResponseType;
 }) {
   return (
     <Select

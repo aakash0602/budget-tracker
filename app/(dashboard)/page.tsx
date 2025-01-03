@@ -30,7 +30,7 @@ export default async function Page() {
             <CreateTransactionDialog
               trigger={
                 <Button
-                  variant={"outline"}
+                  variant="outline"
                   className="border-emerald-500 bg-emerald-950 text-white hover:bg-emerald-700 hover:text-white"
                 >
                   New income
@@ -42,7 +42,7 @@ export default async function Page() {
             <CreateTransactionDialog
               trigger={
                 <Button
-                  variant={"outline"}
+                  variant="outline"
                   className="border-rose-500 bg-rose-950 text-white hover:bg-rose-700 hover:text-white"
                 >
                   New expense

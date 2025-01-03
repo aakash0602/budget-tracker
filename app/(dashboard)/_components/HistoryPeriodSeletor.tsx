@@ -79,6 +79,7 @@ function YearSelector({
   return (
     <Select
       value={period.year.toString()}
+      defaultValue={period.year.toString()}
       onValueChange={(value) => {
         setPeriod({ month: period.month, year: parseInt(value) });
       }}
